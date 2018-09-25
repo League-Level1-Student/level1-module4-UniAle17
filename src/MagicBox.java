@@ -88,11 +88,15 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		
+		if(e.getX()>73 && e.getX()<75 && 
+		   e.getY()>70 && e.getY()<72) {
+			
+			
+		}
 		
 		System.out.println(e.getX());
 		System.out.println(e.getY());
-		
+		74, 71
 		
 		// TODO Auto-generated method stub
 		
