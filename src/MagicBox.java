@@ -19,6 +19,11 @@ import javax.swing.SwingUtilities;
 
 public class MagicBox extends JPanel implements Runnable, MouseListener {
 
+	MediaPalace mp = new MediaPalace();
+	
+	
+	
+	
 	/// We are going to hide secrets within the magic box. 
 	  //When the user clicks on a secret place, stuff will happen.
 	  
@@ -90,17 +95,25 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	public void mousePressed(MouseEvent e) {
 		if(e.getX()>73 && e.getX()<75 && 
 		   e.getY()>70 && e.getY()<72) {
-			
+			mp.loadImageFromWithinProject("hyacinths.jpeg");
 			
 		}
 		
 		System.out.println(e.getX());
 		System.out.println(e.getY());
-		74, 71
 		
-		// TODO Auto-generated method stub
+		if(e.getX()>195 && e.getX()<197 &&
+		   e.getY()>511 && e.getY()<513 ) {
+			
+			mp.loadImageFromWithinProject("helios.jpeg");
+		}
 		
 	}
+	
+		
+		// TODO Auto-generated method stub
+	//196 512
+	
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
