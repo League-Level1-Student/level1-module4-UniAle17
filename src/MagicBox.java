@@ -5,6 +5,7 @@
 
 
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -20,7 +21,7 @@ import javax.swing.SwingUtilities;
 public class MagicBox extends JPanel implements Runnable, MouseListener {
 
 	MediaPalace mp = new MediaPalace();
-	
+	JFrame frame = new JFrame("The Magic Box contains many secrets...");
 	
 	
 	
@@ -62,7 +63,7 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	}
 
 	private void createUI() {
-		JFrame frame = new JFrame("The Magic Box contains many secrets...");
+		frame.setLayout(new FlowLayout());
 		frame.add(this);
 		setPreferredSize(new Dimension(backgroundImage.getWidth(), backgroundImage.getHeight()));
 		frame.pack();
@@ -93,19 +94,21 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if(e.getX()>73 && e.getX()<75 && 
-		   e.getY()>70 && e.getY()<72) {
-			mp.loadImageFromWithinProject("hyacinths.jpeg");
-			
+		if(e.getX()>55 && e.getX()<85 && 
+		   e.getY()>55 && e.getY()<82) {
+			System.out.println("jkl");
+			frame.add(mp.loadImageFromWithinProject("hyacinths.jpeg"));
+			frame.pack();
 		}
 		
 		System.out.println(e.getX());
 		System.out.println(e.getY());
 		
-		if(e.getX()>195 && e.getX()<197 &&
-		   e.getY()>511 && e.getY()<513 ) {
+		if(e.getX()>185 && e.getX()<205 &&
+		   e.getY()>500 && e.getY()<525 ) {
 			
-			mp.loadImageFromWithinProject("helios.jpeg");
+			frame.add(mp.loadImageFromWithinProject("helios.jpeg"));
+			frame.pack();
 		}
 		
 	}
