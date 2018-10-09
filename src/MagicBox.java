@@ -105,13 +105,34 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 		System.out.println(e.getY());
 		
 		if(e.getX()>185 && e.getX()<205 &&
-		   e.getY()>500 && e.getY()<525 ) {
+		   e.getY()>500 && e.getY()<525) {
 			
 			frame.add(mp.loadImageFromWithinProject("helios.jpeg"));
 			frame.pack();
 		}
+		if(e.getX()>340 && e.getX()<360 &&
+		   e.getY()>620 && e.getY()<640) {
+			frame.add(mp.loadImageFromWithinProject("cliff.jpeg"));
+			frame.pack();
+		}
+		if(e.getX()>335 && e.getX()<355 &&
+		   e.getY()>140 && e.getY()<155) {
+			
+		
+		frame.add(mp.loadImageFromWithinProject("butterfly.jpeg"));
+		frame.pack();
+		}
+		
+		if(e.getX()>535 && e.getX()<550 &&
+		   e.getY()>365 && e.getY()<380	) {
+			
+			frame.add(mp.loadImageFromWithinProject("lightbulbs.jpg"));
+			frame.pack();
+		}
+		
 		
 	}
+	
 	
 		
 		// TODO Auto-generated method stub
