@@ -123,7 +123,7 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 		frame.pack();
 		}
 		
-		if(e.getX()>535 && e.getX()<550 &&
+		if(e.getX()>527 && e.getX()<553 &&
 		   e.getY()>365 && e.getY()<380	) {
 			
 			frame.add(mp.loadImageFromWithinProject("lightbulbs.jpg"));
