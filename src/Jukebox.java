@@ -4,6 +4,8 @@
  */
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -11,7 +13,10 @@ import java.net.URL;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import javazoom.jl.player.advanced.AdvancedPlayer;
@@ -19,12 +24,20 @@ import javazoom.jl.player.advanced.AdvancedPlayer;
 /* 1. Download the JavaZoom jar from here: http://bit.ly/javazoom
  * 2. Right click your project and add it as an External JAR (Under Java Build Path > Libraries).*/
 
-public class Jukebox implements Runnable {
+public class Jukebox implements Runnable, ActionListener {
 
+	JFrame frame= new JFrame();
+	JPanel panel= new JPanel();
+	JButton button1= new JButton();
+	JButton button2= new JButton();
+	Song sc = new Song("sc.mp3");
+	Song ghostbusters = new Song("Ghostbusters.mp3");
+	Song currentSong;
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Jukebox());
 	}
 
+			
            public void run() {
 
 		// 3. Find an mp3 on your computer or on the Internet.
@@ -41,12 +54,53 @@ public class Jukebox implements Runnable {
 		 * cover is clicked, stop the currently playing song, and play the one
 		 * that was selected.
 		 */
+        	frame.add(panel);
+        	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        	frame.setVisible(true);
+        	
+        	button1.setText("Ghostbusters Theme Song");
+        	button2.setText("Sweet Caroline");
+        	
+        	button1.addActionListener(this);
+        	button2.addActionListener(this);
+        	
+        	panel.add(button1);
+        	panel.add(button2);
+        	
+        	frame.pack();
+        	
+        	frame.setTitle("Jukebox!!!");
+        	
           }
 	/* Use this method to add album covers to your Panel. */
 	private JLabel loadImage(String fileName) {
 		URL imageURL = getClass().getResource(fileName);
 		Icon icon = new ImageIcon(imageURL);
 		return new JLabel(icon);
+	}     
+
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+		JButton buttonPressed = (JButton) arg0.getSource();
+
+		if(currentSong != null) {
+			currentSong.stop();
+		}
+		
+		if(buttonPressed.equals(button1)){
+			currentSong = ghostbusters;
+			ghostbusters.play();
+		}
+		
+		if(buttonPressed.equals(button2)) {
+			currentSong =sc;
+			sc.play();
+		}
+		
+		
 	}
 
 }
