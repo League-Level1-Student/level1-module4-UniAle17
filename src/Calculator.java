@@ -1,4 +1,5 @@
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -8,17 +9,22 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 public class Calculator implements ActionListener{
-	
-	Calculator(){
-
-		JFrame frame = new JFrame();
+		
+		
+	JFrame frame = new JFrame();
 		JPanel panel = new JPanel();
 		JButton button1 = new JButton();
 		JButton button2 = new JButton();
 		JButton button3 = new JButton();
 		JButton button4 = new JButton();
 		JTextField field1 = new JTextField(10);
-		JTextField field2 = new JTextField(10);	
+		JTextField field2 = new JTextField(10);
+	
+	
+		
+	Calculator(){
+
+			
 		
 		frame.add(panel);
 		
@@ -47,17 +53,49 @@ public class Calculator implements ActionListener{
 	}
 	
 	
-public static void main(String[] args) {
-	
-	Calculator one = new Calculator();
-	
-	
-	
-}
+
 
 @Override
 public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stub
+	
+	String one = field1.getText();
+	String two =field2.getText();
+	
+	int a= Integer.parseInt(one);
+	
+	int b= Integer.parseInt(two);
+	
+	
+	if(e.getSource()==button1) {
+		
+	
+	int total= a+b;
+	
+	JOptionPane.showMessageDialog(null, "Total= " + total);
+	
+	}
+	
+	if(e.getSource()==button2) {
+	
+	int total= a-b;
+	
+	JOptionPane.showMessageDialog(null, "Total=" + total );
+	}
+	
+	if(e.getSource()==button3) {
+	
+		int total=a*b;
+		
+		JOptionPane.showMessageDialog(null, "Total= " + total);
+	}
+	
+	if(e.getSource()==button4) {
+		
+		int total= a/b;
+		
+		JOptionPane.showMessageDialog(null, "Total= " + total);
+	}
 	
 }
 }
